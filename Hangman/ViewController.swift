@@ -9,6 +9,7 @@
 import UIKit
 
 let MAX_NO_LIVES = 6
+let RIDDLE_LANGUAGE = "en" // "ro"
 
 class ViewController: UIViewController {
     
@@ -85,23 +86,23 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             riddleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
             riddleLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
-            riddleLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 10),
+            riddleLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
             
             solutionLabel.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 20),
             solutionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             solutionLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
-            solutionLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 10),
+            solutionLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
             
             textField.topAnchor.constraint(equalTo: solutionLabel.bottomAnchor, constant: 30),
             textField.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
             
             triesLeftLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 30),
             triesLeftLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
-            triesLeftLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 10),
+            triesLeftLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
             
             triedLettersLabel.topAnchor.constraint(equalTo: triesLeftLabel.bottomAnchor, constant: 15),
             triedLettersLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
-            triedLettersLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 10)
+            triedLettersLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10)
         ])
         
         
@@ -111,6 +112,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         textField.delegate = self
+        // Place focus on the textField when the app is first opened
+        textField.becomeFirstResponder()
         
         performSelector(inBackground: #selector(loadRiddlesFromFile), with: nil)
            
@@ -154,14 +157,14 @@ class ViewController: UIViewController {
         }
         
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.loadNewLevel()
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            self?.loadNewLevel()
         }))
         present(ac, animated: true)
     }
     
     @objc func loadRiddlesFromFile() {
-        guard let resourceURL = Bundle.main.url(forResource: "en", withExtension: "txt") else {
+        guard let resourceURL = Bundle.main.url(forResource: RIDDLE_LANGUAGE, withExtension: "txt") else {
             print("en.txt not found...")
             return
         }

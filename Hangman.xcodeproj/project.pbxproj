@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		892818A82330FE220060B97B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892818A72330FE220060B97B /* String.swift */; };
+		892818AA233105D50060B97B /* ro.txt in Resources */ = {isa = PBXBuildFile; fileRef = 892818A9233105D50060B97B /* ro.txt */; };
 		899AF03C232FCA5F002AC509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AF03B232FCA5F002AC509 /* AppDelegate.swift */; };
 		899AF03E232FCA5F002AC509 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AF03D232FCA5F002AC509 /* SceneDelegate.swift */; };
 		899AF040232FCA5F002AC509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AF03F232FCA5F002AC509 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		892818A52330D4FC0060B97B /* scratch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = scratch.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		892818A72330FE220060B97B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		892818A9233105D50060B97B /* ro.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ro.txt; sourceTree = "<group>"; };
 		899AF038232FCA5F002AC509 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		899AF03B232FCA5F002AC509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		899AF03D232FCA5F002AC509 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				899AF046232FCA61002AC509 /* LaunchScreen.storyboard */,
 				899AF049232FCA61002AC509 /* Info.plist */,
 				899AF051232FD298002AC509 /* en.txt */,
+				892818A9233105D50060B97B /* ro.txt */,
 				892818A52330D4FC0060B97B /* scratch.playground */,
 			);
 			path = Hangman;
@@ -141,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892818AA233105D50060B97B /* ro.txt in Resources */,
 				899AF048232FCA61002AC509 /* LaunchScreen.storyboard in Resources */,
 				899AF045232FCA61002AC509 /* Assets.xcassets in Resources */,
 				899AF043232FCA5F002AC509 /* Main.storyboard in Resources */,

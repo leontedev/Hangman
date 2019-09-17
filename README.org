@@ -1,7 +1,25 @@
-* Hangman
+* Riddle Hangman
 Challenge 3 - Day 41 - https://www.hackingwithswift.com/100
+
+[[gif.gif]]
 
 Make a hangman game using UIKit. As a reminder, this means choosing a random word from a list of possibilities, but presenting it to the user as a series of underscores. So, if your word was “RHYTHM” the user would see “??????”.
 The user can then guess letters one at a time: if they guess a letter that it’s in the word, e.g. H, it gets revealed to make “?H??H?”; if they guess an incorrect letter, they inch closer to death. If they seven incorrect answers they lose, but if they manage to spell the full word before that they win.
 
-** Day 41
+** Solution
+ - Autolayout in code.
+ - UITextField Delegate shouldChangeCharactersIn - to restrict keys to letters only.
+ - String Extension to replace a Character in a String at an inde:
+#+BEGIN_SRC Swift
+extension String {
+    func replace(_ with: String, at index: Int) -> String {
+        var modifiedString = String()
+        for (i, char) in self.enumerated() {
+            modifiedString += String((i == index) ? with : String(char))
+        }
+        return modifiedString
+    }
+}
+#+END_SRC
+ - Loading riddles from disk using a background thread
+ - Property Observers for updating the UI Labels: retries left and tried letters.
